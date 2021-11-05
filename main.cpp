@@ -47,9 +47,14 @@ int main()
     vd.push_back(55.4); 
 
     //add 3 elements to the vi vector
-
+    vi.push_back(1);
+    vi.push_back(2);
+    vi.push_back(3);
+    vi.push_back(36);
    // add 3 elements to the vs vector
-
+    vs.push_back("A");
+    vs.push_back("B");
+    vs.push_back("C");
    // display the 3 elements in the vd vector
    cout << "\nValues in vd: \n"; 
    for(double vals : vd)
