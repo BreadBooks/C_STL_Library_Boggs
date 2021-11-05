@@ -68,9 +68,17 @@ int main()
    }
 
     //display the 3 elements in the vi vector
-
+  cout << "\nValues in vi: \n";
+  for( int i = 0; i< vi.size(); i++)
+  {
+    cout << vi[i] << endl;
+  }
    // display the 3 elements in the vs vector
-
+  cout << "\nValues in vs: \n";
+  for (string vals: vs){
+    cout << vals << endl;
+  }
+  
     /****Section_Name***Vector_as_Class_Member*/ 
     //Credit https://www.geeksforgeeks.org/passing-vector-constructor-c/
 
