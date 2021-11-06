@@ -12,8 +12,12 @@ create a single main.cpp that contains code samples and implementations of each 
 #include <stack>
 #include <set>
 #include <utility>
-
+#include <map>
 using namespace std; 
+
+// for 14.map::insert 
+typedef map<string, int> MapT;
+typedef MapT::const_iterator MapIterT;
 
 //Credit https://www.geeksforgeeks.org/passing-vector-constructor-c/ clarifications added
 // Class Example 1
@@ -215,7 +219,17 @@ int main(int arc, char* argv[])
 
     /****Section_Name**** Map_Insert*/
     //Write the code as presented in: 14. std::map::insert
+    MapT amap; // A map stores pairs of a key type & value type 
+    pair< MapIterT, bool> result =
+          amap.insert( make_pair( "Fred", 45 ) ); // insert item into map
+    
+    assert( result.second == true );
+    assert( result.first->second == 45 );
 
+    result = amap.insert( make_pair( "Fred", 54) );
+
+    assert (result.second == false );
+    assert (result.first->second == 45 );
     //Write comments that help one better understand what the code is doing.
 
     /****Section_Name****Map_Summary*/
