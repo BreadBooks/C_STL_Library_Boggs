@@ -75,6 +75,23 @@ public:
             cout << vec3[i] << " ";
     }
 };
+
+class less_than_7 {
+  private: 
+  int m_thresh;
+
+  public:
+  less_than_7( int t )
+  : m_thresh( t )
+  {
+  }
+
+  bool operator( )(int value)
+  {
+    return value < m_thresh;
+  }
+};
+
 int main(int argc, char* argv[]) 
 {
     /****Section_Name***Vectors*/ 
@@ -101,6 +118,7 @@ int main(int argc, char* argv[])
     vs.push_back("A");
     vs.push_back("B");
     vs.push_back("C");
+    vs.push_back("D");
    
    // display the 3 elements in the vd vector
    // Dr. T's Example
@@ -236,6 +254,7 @@ int main(int argc, char* argv[])
 
     /****Section_Name****Map_Summary*/
     //Write the code as presented in: 16. Map summary
+    cout << "\nPhone Book\n" << endl;
     map< string, string > phone_book;
     phone_book[ "411" ] = "Directory";
     phone_book[ "911" ] = "Emergency";
@@ -249,7 +268,7 @@ int main(int argc, char* argv[])
       );
     }
 
-    assert( phone_book.size() == 3 );
+    assert( phone_book.size() );
     map< string, string >::const_iterator it3;
     for (it3 = phone_book.begin(); it3 != phone_book.end(); ++it3 ){
       cout
@@ -268,8 +287,10 @@ int main(int argc, char* argv[])
 
     /****Section_Name****Predicate_Algorithm*/
     //Write the code as presented in: 25. count_if and predicate function
-
-  
+    // 25 would not work but 26 does.
+    vector<int> v2;
+    int x = 6;
+    int count_less = std::count_if(v2.begin(), v2.end(), less_than_7( x ) );
 
       return 0; 
  }
