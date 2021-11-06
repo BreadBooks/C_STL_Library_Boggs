@@ -11,6 +11,7 @@ create a single main.cpp that contains code samples and implementations of each 
 #include <cassert>
 #include <stack>
 #include <set>
+#include <utility>
 
 using namespace std; 
 
@@ -200,8 +201,17 @@ int main(int arc, char* argv[])
 
     /****Section_Name****Pair_Structure*/
     //Write the code as presented in: 4. std::pair structure
+    pair< string, string > strstr; // A pair is much like a container that holds
+    strstr.first = "Hello";        // exactly two elements. The pair is defined
+    strstr.second = "World";       // in the standard header named utility.
 
-    //Write comments that help one better understand what the code is doing.
+    pair< int, string > intstr;
+    intstr.first = 1;
+    intstr.second = "one";
+
+    pair< string, int > strint("two", 2 );
+    assert( strint.first == "two" );
+    assert( strint.second == 2 );
 
     /****Section_Name**** Map_Insert*/
     //Write the code as presented in: 14. std::map::insert
