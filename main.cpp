@@ -34,20 +34,38 @@ class MyClassVector1
 class MyClassVector2 
 {
     private:
-    vector<int> vec;
+    vector<int> vec2;
   
 public:
-    MyClassVector2(vector<int> v) : vec(v)
+    MyClassVector2(vector<int> v) : vec2(v)
     {
     }
     void print()
     {
         /// print the value of vector
-        for (int i = 0; i < vec.size(); i++)
-            cout << vec[i] << " ";
+        for (int i = 0; i < vec2.size(); i++)
+            cout << vec2[i] << " ";
     }
 };
-
+// Class Example 3
+class MyClassVector3 {
+    private:
+    vector<int>& vec3;
+  
+public:
+    // this is the right way to assign
+    // the reference of stl container
+    MyClassVector3(vector<int>& arr)
+        : vec3(arr)
+    {
+    }
+    void print()
+    {
+        /// print the value of vector
+        for (int i = 0; i < vec3.size(); i++)
+            cout << vec3[i] << " ";
+    }
+};
 int main() 
 {
     /****Section_Name***Vectors*/ 
@@ -111,9 +129,27 @@ int main()
         obj.print(); 
       
       //Continue with MyClassVector2 and MyClassVector3
+      // MyClassVector2
+    cout <<"\nVector_as_Class_Member_2" << endl;
+    vector<int> vec2;
+    for (int i = 1; i <= 5; i++)
+        vec.push_back(i);
+    MyClassVector2 obj2(vec);
+    obj.print();
+    return 0;
 
+    //MyClassVector3 // Not printing for some reason
+    cout <<"\nVector_as_Class_Member_3" << endl;
+    vector<int> vec3;
+    for (int i = 1; i <= 5; i++)
+        vec.push_back(i);
+    MyClassVector3 obj3(vec);
+    obj.print();
+    return 0;
     /****Section_Name***STL_Iterators*/ 
-    
+    vector<int> vint(3);
+    vint[0] = 10;
+    vint[1] = 20;
 
     /****Section_Name*** Stack*/
 
