@@ -13,6 +13,8 @@ create a single main.cpp that contains code samples and implementations of each 
 #include <set>
 #include <utility>
 #include <map>
+
+
 using namespace std; 
 
 // for 14.map::insert 
@@ -73,7 +75,7 @@ public:
             cout << vec3[i] << " ";
     }
 };
-int main(int arc, char* argv[]) 
+int main(int argc, char* argv[]) 
 {
     /****Section_Name***Vectors*/ 
     //Write the base code for: 5. std::vector example
@@ -202,7 +204,7 @@ int main(int arc, char* argv[])
     for(it2 = iset.begin(); it2 != iset.end(); it2++ ){
       cout << " " << *it2;
     }
-
+    cout << "\nBlank Space\n" << endl;
     /****Section_Name****Pair_Structure*/
     //Write the code as presented in: 4. std::pair structure
     pair< string, string > strstr; // A pair is much like a container that holds
@@ -230,22 +232,44 @@ int main(int arc, char* argv[])
 
     assert (result.second == false );
     assert (result.first->second == 45 );
-    //Write comments that help one better understand what the code is doing.
+    
 
     /****Section_Name****Map_Summary*/
     //Write the code as presented in: 16. Map summary
+    map< string, string > phone_book;
+    phone_book[ "411" ] = "Directory";
+    phone_book[ "911" ] = "Emergency";
+    phone_book[ "508-678-2811" ] = "BCC";
+    if ( phone_book.find( "411" ) != phone_book.end() ) {
+      phone_book.insert(
+        make_pair(
+          string(" 411" ),
+          string("Directory" )
+        )
+      );
+    }
 
-    //Write comments that help one better understand what the code is doing.
-
+    assert( phone_book.size() == 3 );
+    map< string, string >::const_iterator it3;
+    for (it3 = phone_book.begin(); it3 != phone_book.end(); ++it3 ){
+      cout
+      << " " << it3->first
+      << " " << it3->second
+      << endl
+      ;
+    }
+   
     /****Section_Name**** Sort_Algorithm*/
     //Write the code as presented in: 23. sort example
-
-    //Write comments that help one better understand what the code is doing.
+    int arr[100];
+    sort(arr, arr + 100);
+    vector<int>v1;
+    sort( v1.begin(), v1.end() );
 
     /****Section_Name****Predicate_Algorithm*/
     //Write the code as presented in: 25. count_if and predicate function
 
-    //Write comments that help one better understand what the code is doing. 
+  
 
       return 0; 
  }
