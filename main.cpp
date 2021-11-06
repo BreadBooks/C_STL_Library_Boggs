@@ -10,6 +10,8 @@ create a single main.cpp that contains code samples and implementations of each 
 #include <string>
 #include <cassert>
 #include <stack>
+#include <set>
+
 using namespace std; 
 
 //Credit https://www.geeksforgeeks.org/passing-vector-constructor-c/ clarifications added
@@ -179,8 +181,22 @@ int main(int arc, char* argv[])
 
     /****Section_Name**** Set*/
     //Write the code as presented in: 3. std::set
+    set <int> iset; //set of unique integer numbers
+    cout << "\nSet Element Output" << endl;
+    iset.insert (11); //populate with some values
+    iset.insert (-11);
+    iset.insert (55);
+    iset.insert (22);
+    iset.insert (22);
 
-    //Write comments that help one better understand what the code is doing.
+    if (iset.find(55) != iset.end() ){ // is value already stored?
+      iset.insert(55);
+    }
+    assert( iset.size() == 4 ); // sanity check :3
+    set<int>::iterator it2;
+    for(it2 = iset.begin(); it2 != iset.end(); it2++ ){
+      cout << " " << *it2;
+    }
 
     /****Section_Name****Pair_Structure*/
     //Write the code as presented in: 4. std::pair structure
