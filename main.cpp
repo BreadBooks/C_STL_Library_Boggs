@@ -8,6 +8,8 @@ create a single main.cpp that contains code samples and implementations of each 
 #include <vector>
 #include <algorithm> 
 #include <string>
+#include <cassert>
+#include <stack>
 using namespace std; 
 
 //Credit https://www.geeksforgeeks.org/passing-vector-constructor-c/ clarifications added
@@ -48,15 +50,13 @@ public:
     }
 };
 // Class Example 3
-class MyClassVector3 {
+class MyClassVector3 
+{
     private:
-    vector<int>& vec3;
+    vector<int> vec3;
   
 public:
-    // this is the right way to assign
-    // the reference of stl container
-    MyClassVector3(vector<int>& arr)
-        : vec3(arr)
+    MyClassVector3(vector<int> v) : vec3(v)
     {
     }
     void print()
@@ -66,7 +66,7 @@ public:
             cout << vec3[i] << " ";
     }
 };
-int main() 
+int main(int arc, char* argv[]) 
 {
     /****Section_Name***Vectors*/ 
     //Write the base code for: 5. std::vector example
@@ -136,25 +136,46 @@ int main()
         vec.push_back(i);
     MyClassVector2 obj2(vec);
     obj.print();
-    return 0;
+    
 
-    //MyClassVector3 // Not printing for some reason
+    //MyClassVector3 
     cout <<"\nVector_as_Class_Member_3" << endl;
     vector<int> vec3;
     for (int i = 1; i <= 5; i++)
         vec.push_back(i);
     MyClassVector3 obj3(vec);
     obj.print();
-    return 0;
+   
+    
     /****Section_Name***STL_Iterators*/ 
-    vector<int> vint(3);
-    vint[0] = 10;
-    vint[1] = 20;
+    // 10 Elements
+    cout << "\nSTL_Iterators Output" << endl;
+    vector<int> vint(10); // vector w/ 10 integers
+    vint[0] = 3;
+    vint[1] = 7;
+    vint[2] = 8;
+    vint[3] = 12;
+    vint[4] = 15;
+    vint[5] = 19;
+
+    //Display elements of the vector
+    vector<int>::iterator it;
+    for (it = vint.begin(); it != vint.end(); ++it ){
+      cout << " " << *it;
+    }
+    
 
     /****Section_Name*** Stack*/
+    stack<int> st;
+    st.push(100); //push number on the stack
+    assert( st.size() == 1); // verify one element is on the stack
+    assert( st.top() == 100); // verify element value
+    
+    st.top() = 456; // assign new value
+    assert( st.top() == 456 );
 
-
-    //Write comments that help one better understand what the code is doing.
+    st.pop();
+    assert( st.empty() == true );
 
     /****Section_Name**** Set*/
     //Write the code as presented in: 3. std::set
