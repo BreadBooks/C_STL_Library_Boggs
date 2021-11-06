@@ -11,6 +11,7 @@ create a single main.cpp that contains code samples and implementations of each 
 using namespace std; 
 
 //Credit https://www.geeksforgeeks.org/passing-vector-constructor-c/ clarifications added
+// Class Example 1
 class MyClassVector1 
 { 
   private:  
@@ -28,6 +29,23 @@ class MyClassVector1
               cout << vec[i] << " "; 
           }    
       } 
+};
+// Class Example 2
+class MyClassVector2 
+{
+    private:
+    vector<int> vec;
+  
+public:
+    MyClassVector2(vector<int> v) : vec(v)
+    {
+    }
+    void print()
+    {
+        /// print the value of vector
+        for (int i = 0; i < vec.size(); i++)
+            cout << vec[i] << " ";
+    }
 };
 
 int main() 
@@ -51,11 +69,14 @@ int main()
     vi.push_back(2);
     vi.push_back(3);
     vi.push_back(36);
+   
    // add 3 elements to the vs vector
     vs.push_back("A");
     vs.push_back("B");
     vs.push_back("C");
+   
    // display the 3 elements in the vd vector
+   // Dr. T's Example
    cout << "\nValues in vd: \n"; 
    for(double vals : vd)
    {
@@ -67,7 +88,7 @@ int main()
      cout << vd[i] << endl; 
    }
 
-    //display the 3 elements in the vi vector
+ //display the 3 elements in the vi vector
   cout << "\nValues in vi: \n";
   for( int i = 0; i< vi.size(); i++)
   {
